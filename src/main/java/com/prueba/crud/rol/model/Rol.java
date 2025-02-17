@@ -1,16 +1,14 @@
-package com.prueba.crud.company.model;
+package com.prueba.crud.rol.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "empresas")
-public class Company {
+@Table(name = "roles")
+public class Rol {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
     private String nombre;
-    private String nit;
 }

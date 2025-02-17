@@ -3,6 +3,8 @@ package com.prueba.crud.user.controller;
 import com.prueba.crud.user.model.User;
 import com.prueba.crud.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,18 +23,21 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public Optional<User> getUserById(@PathVariable("id") Integer id){
-        return userService.getUser(id);
+    public ResponseEntity<User> getUserById(@PathVariable("id") Integer id){
+        Optional<User> user = userService.getUser(id);
+        return user.map(ResponseEntity::ok)
+                .orElseGet(()-> ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user){
-        userService.createUser(user);
-        return user;
+    public ResponseEntity<User> createUser(@RequestBody User user){
+        User userSaved = userService.createUser(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(userSaved);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable("id") Integer id){
+    public ResponseEntity<Void> deleteUser(@PathVariable("id") Integer id){
         userService.deleteUser(id);
+        return ResponseEntity.noContent().build();
     }
 }

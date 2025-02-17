@@ -21,8 +21,8 @@ public class CompanyService {
         return companyRespository.findById(id);
     }
 
-    public void createCompany(Company company){
-        companyRespository.save(company);
+    public Company createCompany(Company company){
+        return companyRespository.save(company);
     }
 
     public void deleteCompany(Integer id){
