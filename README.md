@@ -54,8 +54,11 @@ Antes de ejecutar el proyecto en Docker, asegúrate de tener instalado **Docker*
 
 ### 2. Construir la imagen Docker usando docker compose
 
+Asegurate de tener un .jar
+
 
     ```Dockercompose
+    mvn clean package
 
     docker-compose up --build
     ```
