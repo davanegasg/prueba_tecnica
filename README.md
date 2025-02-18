@@ -28,7 +28,7 @@ Antes de ejecutar el proyecto en tu PC, asegúrate de tener instalados los sigui
 3. Ejecuta el siguiente comando para clonar el repositorio:
 
    ```bash
-   git clone https://github.com/usuario/nombre-del-repositorio.git
+   git clone https://github.com/davanegasg/prueba_tecnica.git
 
 4. Accede al directorio del proyecto clonado:
 
@@ -52,25 +52,8 @@ Para correr la aplicación dentro de un contenedor Docker, sigue estos pasos:
 
 Antes de ejecutar el proyecto en Docker, asegúrate de tener instalado **Docker** en tu máquina. Si no lo tienes, puedes descargarlo desde [aquí](https://www.docker.com/products/docker-desktop).
 
-### 2. Construir la imagen Docker
+### 2. Construir la imagen Docker usando docker compose
 
-En el directorio raíz de tu proyecto, asegúrate de tener un archivo `Dockerfile` que contenga la configuración necesaria para construir la imagen Docker. Si no tienes un `Dockerfile`, aquí tienes un ejemplo básico para una aplicación Spring Boot:
-
-    ```Dockerfile
-    # Usar una imagen base de Java 21
-    FROM openjdk:21-jdk-slim
-
-    # Establecer el directorio de trabajo
-    WORKDIR /app
-
-    # Copiar el archivo JAR de la aplicación al contenedor
-    COPY target/mi-aplicacion.jar /app/mi-aplicacion.jar
-
-    # Exponer el puerto que usará la aplicación
-    EXPOSE 8080
-
-    # Comando para ejecutar la aplicación
-    ENTRYPOINT ["java", "-jar", "/app/mi-aplicacion.jar"]
 
     ```Dockercompose
 
